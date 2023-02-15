@@ -41,7 +41,17 @@ SELECT * FROM employees
 
 -- COMMAND ----------
 
+optimize employees zorder by id
+
+-- COMMAND ----------
+
 DESCRIBE DETAIL employees
+
+-- COMMAND ----------
+
+INSERT INTO employees
+VALUES 
+  (7, "Ravi", 3500.0),   (8, "Pushkar", 3500.0)
 
 -- COMMAND ----------
 
@@ -61,4 +71,16 @@ DESCRIBE HISTORY employees
 
 -- COMMAND ----------
 
+describe history employees
 
+-- COMMAND ----------
+
+select * from employees
+
+-- COMMAND ----------
+
+restore table employees to version as of 2 
+
+-- COMMAND ----------
+
+vacuum employees

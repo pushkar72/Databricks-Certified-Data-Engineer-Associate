@@ -85,6 +85,10 @@ load_new_data()
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 (spark.table("orders_enriched_tmp")
       .writeStream
       .format("delta")
@@ -129,7 +133,7 @@ load_new_data()
       .outputMode("complete")
       .option("checkpointLocation", "dbfs:/mnt/demo/checkpoints/daily_customer_books")
       .trigger(availableNow=True)
-      .table("daily_customer_books"))
+      .table("daily_customer_books_gold"))
 
 # COMMAND ----------
 

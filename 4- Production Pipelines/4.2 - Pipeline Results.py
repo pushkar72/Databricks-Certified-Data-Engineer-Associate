@@ -1,16 +1,16 @@
 # Databricks notebook source
-files = dbutils.fs.ls("dbfs:/mnt/demo/dlt/demo_bookstore")
+files = dbutils.fs.ls("dbfs:/mnt/demo/delta/")
 display(files)
 
 # COMMAND ----------
 
-files = dbutils.fs.ls("dbfs:/mnt/demo/dlt/demo_bookstore/system/events")
+files = dbutils.fs.ls("dbfs:/mnt/demo/delta/system/events")
 display(files)
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SELECT * FROM delta.`dbfs:/mnt/demo/dlt/demo_bookstore/system/events`
+# MAGIC SELECT * FROM delta.`dbfs:/mnt/demo/delta/system/events`
 
 # COMMAND ----------
 

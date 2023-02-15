@@ -23,7 +23,7 @@ def download_dataset(source, target):
 
 # COMMAND ----------
 
-data_source_uri = "wasbs://course-resources@dalhussein.blob.core.windows.net/datasets/bookstore/v1/"
+data_source_uri = "wasbs://dbdata@databricksdatafilepj.blob.core.windows.net/"
 dataset_bookstore = 'dbfs:/mnt/demo-datasets/bookstore'
 spark.conf.set(f"dataset.bookstore", dataset_bookstore)
 

@@ -11,6 +11,11 @@
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from books
+
+# COMMAND ----------
+
 (spark.readStream
       .table("books")
       .createOrReplaceTempView("books_streaming_tmp_vw")

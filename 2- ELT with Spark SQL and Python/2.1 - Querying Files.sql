@@ -17,6 +17,12 @@
 
 -- COMMAND ----------
 
+-- MAGIC %python
+-- MAGIC files = dbutils.fs.ls(f"{dataset_bookstore}/")
+-- MAGIC display(files)
+
+-- COMMAND ----------
+
 SELECT * FROM json.`${dataset.bookstore}/customers-json/export_001.json`
 
 -- COMMAND ----------
@@ -103,6 +109,10 @@ REFRESH TABLE books_csv
 -- COMMAND ----------
 
 SELECT COUNT(*) FROM books_csv
+
+-- COMMAND ----------
+
+drop table books_csv
 
 -- COMMAND ----------
 

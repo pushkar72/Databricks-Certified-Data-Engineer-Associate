@@ -1,4 +1,10 @@
 -- Databricks notebook source
+create schema pushkardb
+
+
+-- COMMAND ----------
+
+use pushkardb; 
 CREATE TABLE managed_default
   (width INT, length INT, height INT);
 
@@ -11,6 +17,7 @@ DESCRIBE EXTENDED managed_default
 
 -- COMMAND ----------
 
+use default;
 CREATE TABLE external_default
   (width INT, length INT, height INT)
 LOCATION 'dbfs:/mnt/demo/external_default';

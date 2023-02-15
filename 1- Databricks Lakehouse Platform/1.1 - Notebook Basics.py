@@ -49,7 +49,7 @@ print(full_name)
 
 # COMMAND ----------
 
-# MAGIC %fs ls '/databricks-datasets'
+# MAGIC %fs ls '/databricks-datasets/online_retail'
 
 # COMMAND ----------
 

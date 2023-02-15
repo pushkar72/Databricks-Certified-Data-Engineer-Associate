@@ -65,11 +65,11 @@ VACUUM employees RETAIN 0 HOURS
 
 -- COMMAND ----------
 
-SET spark.databricks.delta.retentionDurationCheck.enabled = false;
+SET spark.databricks.delta.retentionDurationCheck.enabled = true;
 
 -- COMMAND ----------
 
-VACUUM employees RETAIN 0 HOURS
+VACUUM employees RETAIN 4 Day
 
 -- COMMAND ----------
 

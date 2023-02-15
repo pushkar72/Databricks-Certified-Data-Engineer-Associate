@@ -39,7 +39,7 @@ DESCRIBE HISTORY orders
 -- COMMAND ----------
 
 INSERT OVERWRITE orders
-SELECT *, current_timestamp() FROM parquet.`${dataset.bookstore}/orders`
+SELECT *, current_timestamp()  FROM parquet.`${dataset.bookstore}/orders`
 
 -- COMMAND ----------
 
@@ -49,6 +49,10 @@ SELECT * FROM parquet.`${dataset.bookstore}/orders-new`
 -- COMMAND ----------
 
 SELECT count(*) FROM orders
+
+-- COMMAND ----------
+
+select * from customers
 
 -- COMMAND ----------
 
@@ -74,6 +78,17 @@ OPTIONS (
 );
 
 SELECT * FROM books_updates
+
+-- COMMAND ----------
+
+ create table books
+  (book_id STRING, title STRING, author STRING, category STRING, price DOUBLE)
+USING CSV
+OPTIONS (
+  path = "${dataset.bookstore}/books-csv",
+  header = "true",
+  delimiter = ";"
+);
 
 -- COMMAND ----------
 
