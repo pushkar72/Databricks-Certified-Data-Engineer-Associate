@@ -10,18 +10,18 @@
 
 # Paste in your account key in the second argument
 spark.conf.set(
-    "fs.azure.account.key.<ACCOUNT-NAME>.dfs.core.windows.net",
-    "PASTE YOUR ACCOUNT KEY HERE")
+    "fs.azure.account.key.dbdatafilesstgpj.dfs.core.windows.net",
+    "eq4XrDdcq+Y9R9L1vxWZ1gq0yMaR74fKhd1Kvbz4++vCBY3hmjITkGVxF3vqSfBhOXcy/do2lyzE+AStUF+ENw==")
 
 # COMMAND ----------
 
 # Reading data from the storage account
-countries = spark.read.csv("abfss://<YOUR CONTAINER NAME HERE>@<YOUR STORAGE ACCOUNT NAME HERE>.dfs.core.windows.net/countries.csv", header=True)
+countriesdf = spark.read.csv("abfss://countries@dbdatafilesstgpj.dfs.core.windows.net/countries.csv", header=True)
 
 # COMMAND ----------
 
 # Reading data from the storage account
-regions = spark.read.csv("abfss://<YOUR CONTAINER NAME HERE>@<YOUR STORAGE ACCOUNT NAME HERE>.dfs.core.windows.net/country_regions.csv", header=True)
+regionsdf = spark.read.csv("abfss://countries@dbdatafilesstgpj.dfs.core.windows.net/country_regions.csv", header=True)
 
 # COMMAND ----------
 

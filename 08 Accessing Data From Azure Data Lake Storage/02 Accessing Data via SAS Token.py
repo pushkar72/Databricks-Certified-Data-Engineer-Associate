@@ -9,11 +9,12 @@
 # COMMAND ----------
 
 # Setting the configuration
-spark.conf.set("fs.azure.account.auth.type.<ACCOUNT-NAME>.dfs.core.windows.net", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type.<ACCOUNT-NAME>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
-spark.conf.set("fs.azure.sas.fixed.token.<ACCOUNT-NAME>.dfs.core.windows.net", "INSERT SAS TOKEN HERE")
+# Generate SAS Token with Read and List Permission on container
+spark.conf.set("fs.azure.account.auth.type.dbdatafilesstgpj.dfs.core.windows.net", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type.dbdatafilesstgpj.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+spark.conf.set("fs.azure.sas.fixed.token.dbdatafilesstgpj.dfs.core.windows.net", "sp=racwdl&st=2023-02-15T08:37:00Z&se=2023-02-15T16:37:00Z&spr=https&sv=2021-06-08&sr=c&sig=GKCl0Fyhb1YyXMaMH8U6eSjDPVMQU561hUYyLYitrSQ%3D")
 
 # COMMAND ----------
 
 # Reading data from storage account
-spark.read.csv("abfss://<INSERT CONTAINER NAME>@<INSERT STORAGE ACCOUNT NAME>.dfs.core.windows.net/country_regions.csv", header=True).display()
+spark.read.csv("abfss://countries@dbdatafilesstgpj.dfs.core.windows.net/country_regions.csv", header=True).display()
