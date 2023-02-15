@@ -18,3 +18,4 @@ spark.conf.set("fs.azure.sas.fixed.token.dbdatafilesstgpj.dfs.core.windows.net",
 
 # Reading data from storage account
 spark.read.csv("abfss://countries@dbdatafilesstgpj.dfs.core.windows.net/country_regions.csv", header=True).display()
+

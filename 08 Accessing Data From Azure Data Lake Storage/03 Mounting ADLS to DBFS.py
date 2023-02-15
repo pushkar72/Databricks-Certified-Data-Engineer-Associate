@@ -7,17 +7,28 @@
 
 # COMMAND ----------
 
+#Enable DBFS File Browser
+# Admin Console> Workspace Settings >Advance > Enable DBFS Browser
+
+# COMMAND ----------
+
+application_id= "3688ffda-b8f7-49e1-ab0d-999e10e70e0d"
+directory_id="7b37bdef-15bf-48a1-abf8-0b72e3030fc7"
+secret="3ny8Q~Nrb1M3K2~2yVgus2bZFyW-qaRTQ_a3qdkS"
+
+# COMMAND ----------
+
 # syntax for configs and mount methods
 configs = {"fs.azure.account.auth.type": "OAuth",
           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-          "fs.azure.account.oauth2.client.id": "<application-id>",
-          "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope="<scope-name>",key="<service-credential-key-name>"),
-          "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<directory-id>/oauth2/token"}
+          "fs.azure.account.oauth2.client.id": application_id,
+          "fs.azure.account.oauth2.client.secret": secret,
+          "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/7b37bdef-15bf-48a1-abf8-0b72e3030fc7/oauth2/token"}
 
 # Optionally, you can add <directory-name> to the source URI of your mount point.
 dbutils.fs.mount(
-  source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/",
-  mount_point = "/mnt/<mount-name>",
+  source = "abfss://countries@dbdatafilesstgpj.dfs.core.windows.net/",
+  mount_point = "/mnt/azstorage",
   extra_configs = configs)
 
 # COMMAND ----------
@@ -66,9 +77,9 @@ display(dbutils.fs.mounts())
 # COMMAND ----------
 
 # Reading data from the new mount point
-spark.read.csv("/mnt/bronze/countries.csv", header=True).display()
+spark.read.csv("/mnt/azstorage/country_regions.csv", header=True).display()
 
 # COMMAND ----------
 
 # Using the unmount method to unmount the storage container
-dbutils.fs.unmount('/mnt/bronze')
+dbutils.fs.unmount('/mnt/azstorage')
