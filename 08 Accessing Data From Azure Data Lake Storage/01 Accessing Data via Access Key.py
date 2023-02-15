@@ -10,7 +10,7 @@
 
 # Paste in your account key in the second argument
 spark.conf.set(
-    "fs.azure.account.key.datalake639.dfs.core.windows.net",
+    "fs.azure.account.key.<ACCOUNT-NAME>.dfs.core.windows.net",
     "PASTE YOUR ACCOUNT KEY HERE")
 
 # COMMAND ----------

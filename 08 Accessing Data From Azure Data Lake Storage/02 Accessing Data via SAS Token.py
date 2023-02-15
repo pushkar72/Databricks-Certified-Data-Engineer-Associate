@@ -9,9 +9,9 @@
 # COMMAND ----------
 
 # Setting the configuration
-spark.conf.set("fs.azure.account.auth.type.datalake639.dfs.core.windows.net", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type.datalake639.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
-spark.conf.set("fs.azure.sas.fixed.token.datalake639.dfs.core.windows.net", "INSERT SAS TOKEN HERE")
+spark.conf.set("fs.azure.account.auth.type.<ACCOUNT-NAME>.dfs.core.windows.net", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type.<ACCOUNT-NAME>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+spark.conf.set("fs.azure.sas.fixed.token.<ACCOUNT-NAME>.dfs.core.windows.net", "INSERT SAS TOKEN HERE")
 
 # COMMAND ----------
 
